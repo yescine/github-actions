@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: basic health check
         run: | 
-          echo NODE ENV === {{$env.NODE_ENV}}
+          echo NODE ENV === ${{env.NODE_ENV}}
 
   flavor_1:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: conditional runing with tags
-        if: ${{ env.TAG_1 == true }}
+        if: ${{ env.TAG_1 == 'true' }}
         run: echo "$Greeting $API_KEY. Today is $TAG_1 !"
         env:
           API_KEY: some-key
