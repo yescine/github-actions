@@ -24,8 +24,8 @@ jobs:
     steps:
       - name: "developement flavor"
         run: | 
-        echo "\034[31;1;4mquick testd\034[0m"
-        echo "proof of concept for NODE_ENV=== ${{env.NODE_ENV}}"
+          echo "\034[31;1;4mquick testd\034[0m"
+          echo "proof of concept for NODE_ENV=== ${{env.NODE_ENV}}"
 
   flavor_2:
     runs-on: ubuntu-latest
@@ -35,8 +35,8 @@ jobs:
         env:
           NODE_ENV: production-new-company 
         run: |
-        echo "\033[31;1;4madvanced\033[0m"
-        echo "create new company for NODE_ENV=== ${{env.NODE_ENV}}"
+          echo "\033[31;1;4madvanced\033[0m"
+          echo "create new company for NODE_ENV=== ${{env.NODE_ENV}}"
   
   flavor_conditional:
     runs-on: ubuntu-latest
