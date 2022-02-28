@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: "developement flavor"
         run: | 
-          echo -e "\034[31;1;4mquick testd\034[0m"
+          echo -e "\034[31;1;4mquick-testd\034[0m"
           echo "proof of concept for NODE_ENV=== ${{env.NODE_ENV}}"
 
   flavor_2:
