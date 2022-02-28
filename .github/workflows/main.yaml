@@ -15,6 +15,7 @@ jobs:
       -name: basic health check
       run: | 
         echo "NODE ENV === {{$env.NODE_ENV}}"
+
   flavor_1:
     runs-on: ubuntu-latest
     needs: [health-check]
@@ -25,24 +26,23 @@ jobs:
         run: echo "steps for NODE_ENV=== ${{env.NODE_ENV}}"
 
   flavor_2:
-      runs-on: ubuntu-latest
-      needs: [health-check]
-      steps:
-        - name: "production-new company flavor"
-          env:
-            NODE_ENV: production-new-company 
-          run: echo "steps for NODE_ENV=== ${{env.NODE_ENV}}"
+    runs-on: ubuntu-latest
+    needs: [health-check]
+    steps:
+      - name: "production-new company flavor"
+        env:
+          NODE_ENV: production-new-company 
+        run: echo "steps for NODE_ENV=== ${{env.NODE_ENV}}"
   
-           
-   flavor_3:
-      runs-on: ubuntu-latest
-      needs: [health-check, flavor_2]
-      env:
-        Greeting: Hello
-      steps:
-        - name: conditional runing with tags
-          if: ${{ env.TAG_1 == true }}
-          run: echo "$Greeting $API_KEY. Today is $TAG_1 !"
-          env:
-            API_KEY: some-key
+  flavor_3:
+    runs-on: ubuntu-latest
+    needs: [health-check, flavor_2]
+    env:
+      Greeting: Hello
+    steps:
+      - name: conditional runing with tags
+        if: ${{ env.TAG_1 == true }}
+        run: echo "$Greeting $API_KEY. Today is $TAG_1 !"
+        env:
+          API_KEY: some-key
             
