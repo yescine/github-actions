@@ -4,7 +4,7 @@ on: [push]
 
 env:
   NODE_ENV: developement
-  TAG_1: true
+  TAG_1: 'true'
 
 jobs:
   health-check:
@@ -12,9 +12,9 @@ jobs:
     env:
       TOKEN: "some token"
     steps:
-      -name: basic health check
-      run: | 
-        echo "NODE ENV === {{$env.NODE_ENV}}"
+      - name: basic health check
+        run: | 
+          echo "NODE ENV === {{$env.NODE_ENV}}"
 
   flavor_1:
     runs-on: ubuntu-latest
