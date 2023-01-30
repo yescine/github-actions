@@ -1,4 +1,4 @@
-name: diagrame echo testing
+name: Staging diagrame echo testing
 
 on: 
   push:
